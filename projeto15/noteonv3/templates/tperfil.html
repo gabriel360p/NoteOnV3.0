@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>NoteOn3</title>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            Perfil: {{dados.name}}
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'noteonv3:tlivraria' dados.id%}">Library</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <form role="form">
+         {% csrf_token %}
+        <div class="form-group">  
+          <label for="exampleInputEmail1">
+            Nome
+          </label>
+          <input type="text" disabled value="{{dados.name}}" class="form-control" id="exampleInputEmail1" />
+        </div>
+        <div class="form-group">
+
+        <div class="form-group">  
+          <label for="exampleInputEmail1">
+            Numero
+          </label>
+          <input type="number" disabled value="{{dados.number}}" class="form-control" id="exampleInputEmail1" />
+        </div>
+        <div class="form-group">
+
+          <label for="exampleInputEmail1">
+            Email
+          </label>
+          <input type="email" class="form-control" disabled value="{{dados.email}}"  id="exampleInputEmail1" />
+        </div>
+        <div class="form-group">
+           
+          <label for="exampleInputPassword1">
+            Senha
+          </label>
+          <input type="password" class="form-control" id="exampleInputPassword1" disabled value="{{dados.passw}}" />
+        </div>
+        <div class="form-group">
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <a href="{% url 'noteonv3:teditperfil' dados.id%}">
+      <button type="button" class="btn btn-primary">Editar</button>
+    </a>
+    <a href="{% url 'noteonv3:index'%}">
+      <button type="button" class="btn btn-secondary">Sair</button>
+    </a>
+    <a href="{% url 'noteonv3:btndeletarconta' dados.id%}">
+      <button type="button" class="btn btn-danger">Deletar Perfil</button>
+    </a>
+  </div>
+</div>
+
+<div style="display: flex;height: 20px; opacity: %;">.</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card text-white bg-primary">
+        <h5 class="card-header">
+          Bem Vindo de volta {{dados.name}}!
+        </h5>
+        <div class="card-body">
+          <p class="card-text">
+            O Seu retorno era muito esperado!
+          </p>
+        </div>
+        <div class="card-footer">
+          Veja as novidades!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
